@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="cssAdm/adm.css">
+</head>
+<body>
+<div class="erro" th:if="${not #strings.isEmpty(mensagemErro)}"> <span th:text="${mensagemErro}" ></span></div>
+	
+	<div class="sucesso" th:if="${not #strings.isEmpty(mensagemSucesso)}"> <span th:text="${mensagemSucesso}" ></span></div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Administrador</title>
+
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="cssAdm/adm.css">
+    
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+	<form class=controle method="post" action="salvarAdm">
+	
+	<input type="hidden" th:value="${adm?.id}" name="id">
+		
+	<table >
+			<h2 class="titulo">Cadastro de Administrador</h2>
+	 	 <div class="row ">
+    <div class="input-field col s6">
+   
+   
+      <i class="material-icons">account_circle<input id="first_name2" type="text" class="validate" name="nome" th:value="${adm?.nome}" required="required"></i>
+      <label  class="active" for="first_name2">Nome</label>
+    </div>
+  </div>
+	
+
+	 	<div class="row">
+    <div class="input-field col s6">
+       <i class="material-icons">email<input  id="first_name2" type="email" class="validate" name="email" th:value="${adm?.email} " required="required"></i>
+      <label class="active" for="first_name2">Email</label>
+    </div>
+  </div>
+		
+		
+	 	<div class="row">
+    <div class="input-field col s6">
+     <i class="material-icons">lock<input  id="first_name2" type="password" class="validate" name="senha" th:value="${adm?.senha}" required="required"></i>
+      <label class="active" for="first_name2">Senha</label>
+    </div>
+  </div>
+  
+		</table>
+		 
+		
+		<button id="botao" class="waves-effect waves-light btn-large blue lighten-5 " type="submit" >Salvar</button>
+	</form>
+
+	<div th:replace="fragments/mensagem">
+		
+	</div>
+	
+</body>
+</html>
