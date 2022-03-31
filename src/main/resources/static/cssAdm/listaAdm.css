@@ -1,4 +1,12 @@
 @charset "ISO-8859-1";
-body{
-	background-color: #e1f5fe;
+
+.head{
+	background-color: black;
+	color:white;
+}
+footer {
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
 }

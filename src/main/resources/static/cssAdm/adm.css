@@ -32,3 +32,10 @@ body{
 #first_name2{
 	width:200%;
 }
+
+footer {
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+}

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="/cssAdm/listaAdm.css">
+
+<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
-	<link rel="stylesheet" href="cssAdm/listaAdm.css">
-	
-
 <meta charset="utf-8">
 <title>Listas</title>
 </head>
 <body>
+
+  <header th:replace="fragments/padrao :: cabecalho"></header>
+  
 	<table class="striped">
-		<thead>
+		<thead class="head">
 			<tr>
 				<th>Id</th>
 				<th>Nome</th>
@@ -44,6 +45,9 @@
 		<li th:class="${paginaAtual == totalPaginas ? 'disabled' : 'waves-effect'}"><a th:href="${paginaAtual < totalPaginas ? paginaAtual + 1 : '#'}"><i
 				class="material-icons">chevron_right</i></a></li>
 	</ul>
+	
+	<footer th:replace="fragments/padrao :: rodape"></footer>
 
+            
 </body>
 </html>

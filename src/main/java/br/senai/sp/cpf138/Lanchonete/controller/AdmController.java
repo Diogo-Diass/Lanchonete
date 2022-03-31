@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.senai.sp.cpf138.Lanchonete.model.Administrador;
 import br.senai.sp.cpf138.Lanchonete.repository.AdminRepository;
+import br.senai.sp.cpf138.Lanchonete.util.HashUtil;
 
 @Controller
 public class AdmController {
@@ -43,12 +44,33 @@ public class AdmController {
 			attr.addFlashAttribute("mensagemErro", "Verifique os campos...");
 			return "redirect:formAdm";
 		}
+		//verifica se esta sendo feita uma alteração ao invés de uma inserção
+		boolean alteracao = adm.getId() != null ? true : false;
+		
+		
+		//verifica se a senha esta vazia
+		if(adm.getSenha().equals(HashUtil.hash256(""))) {
+			//se nao for alteração, defino a primeira parte do email como senha
+			if(!alteracao) {
+				//EXTRAI A PARTE DO EMAIL ANTES DO @
+				//substring pega um trecho da String começando pela posição 0, no caso a primeira letra, o index of faz com que o trecho(subString) pegue so ate o @, definido pelo index of
+				String parte = adm.getEmail().substring(0, adm.getEmail().indexOf("@"));
+				//define a senha do admin
+				adm.setSenha(parte);
+			}else {
+				//busca a senha atual
+				String hash = admRep.findById(adm.getId()).get().getSenha();
+				//"seta"  a senha com hash
+				adm.setSenhaComHash(hash);
+			}
+		}
+		
 		
 		try {
 			//salva o adm
 			admRep.save(adm);
 			//exibe uma mensagem de sucesso ao adm ao ele ter conseguido se cadastrar
-			attr.addFlashAttribute("mensagemSucesso", "Administrador cadastrado com sucesso!!! ----- ID: " + adm.getId());	
+			attr.addFlashAttribute("mensagemSucesso", "Administrador salvo com sucesso!!! OBS: Caso a senha não tenha sido informada,ela será a primeira parte do seu email ----- ID: " + adm.getId());	
 			
 		} catch (Exception e) {
 			//exibe uma mensagem de erro ao adm ao ele não ter conseguido se cadastrar

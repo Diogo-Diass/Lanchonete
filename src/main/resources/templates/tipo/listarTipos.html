@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/tipoCss/tipo.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<header th:replace="fragments/padrao :: cabecalho"></header>
+
+	<form action="buscarChave" class="formBusca">		
+		<input type="search" name="palavraChave" placeholder="busque uma palavra chave..."> 
+		<button id="botao" class="waves-effect waves-light btn" type="submit">Buscar</button>
+		</form>
+<table>
+        <thead class="head">
+          <tr>
+          	  <th>Id</th>
+              <th>Nome</th>
+              <th>Descrição</th>
+              <th>Palavra chave</th>
+              <th>Alterar</th>
+              <th>Excluir</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr th:each="t:${tipos}">
+          	<td th:text="${t.id}"></td>
+            <td th:text="${t.nome}"></td>
+            <td th:text="${t.descricao}"></td>
+            <td th:text="${t.palavraChave}"></td>
+            <td><a th:href="@{/alterarTipo(id=${t.id})}">Alterar</a></td>
+            <td><a th:href="@{/excluirTipo(id=${t.id})}">Excluir</a></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+       <footer th:replace="fragments/padrao :: rodape"></footer>
+</body>
+</html>

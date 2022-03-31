@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/tipoCss/formTipo.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+	<header th:replace="fragments/padrao :: cabecalho"></header>
+
+	<div class="titulo"><h2 class="h2">Tipos de lanchonetes:</h2></div>
+	<div class="principal ">
+	<form method="post" action="salvarTipo" class="formulario">
+	
+		<input type="hidden" th:value="${tipo?.id}" name="id">
+		
+		  <div class="divs row">
+		  <div class="input-field col s6">
+		  
+          
+           <i class="material-icons">local_dining<input  id="first_name" type="text" class="validate" name="nome" required="required" th:value="${tipo?.nome}"></i>
+           <label class="active" for="first_name">Nome</label>
+           </div>
+           </div>
+           
+           <div class="divs row">
+           <div class="input-field col s6">
+           
+           <label class="active" for="first_name">Descrição</label>
+           <i class="material-icons">info_outline<input  id="first_name" type="text" class="validate" name="descricao" required="required" th:value="${tipo?.descricao}"></i>
+           
+           </div>
+           </div>
+           
+           <div class="divs row">
+           <div class="input-field col s6">
+           
+           <label class="active" for="first_name">Palavra Chave</label>
+           <i class="material-icons">vpn_key<input  id="first_name" type="text" class="validate" name="palavraChave" required="required" th:value="${tipo?.palavraChave}"></i>
+           
+           </div>
+           </div>
+           <button class="waves-effect waves-light btn" type="submit">Enviar</button>
+	
+	</form>
+	</div>
+<footer th:replace="fragments/padrao :: rodape"></footer>
+</body>
+</html>

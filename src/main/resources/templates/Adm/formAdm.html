@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <title>Administrador</title>
 
+<link rel="stylesheet" href="/cssAdm/padrao.css">
+
  <!-- Compiled and minified CSS -->
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="cssAdm/adm.css">
     
@@ -12,6 +15,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+	 <header th:replace="fragments/padrao :: cabecalho"></header>
 
 	<form class=controle method="post" action="salvarAdm">
 	
@@ -39,7 +43,7 @@
 		
 	 	<div class="row">
     <div class="input-field col s6">
-     <i class="material-icons">lock<input  id="first_name2" type="password" class="validate" name="senha" th:value="${adm?.senha}" required="required"></i>
+     <i class="material-icons">lock<input  id="first_name2" type="password" class="validate" name="senha"  required="required"></i>
       <label class="active" for="first_name2">Senha</label>
     </div>
   </div>
@@ -53,6 +57,8 @@
 	<div th:replace="fragments/mensagem">
 		
 	</div>
+	
+	<footer th:replace="fragments/padrao :: rodape"></footer>
 	
 </body>
 </html>

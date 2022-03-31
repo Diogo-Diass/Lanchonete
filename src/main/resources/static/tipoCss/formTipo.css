@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+body{
+	background-color:#e3f2fd;
+}
+#first_name{
+	width: 130%;
+}
+.formulario{
+	width: 30%;
+	margin:100px 650px;
+	background-color: white;
+	}
+.titulo{
+	background-color: black;
+	color:white;
+	text-align: center;
+	height: 70px;
+}
+footer {
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+	
