@@ -1,39 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<title>Lanchonete</title>
 
+<link rel="stylesheet" href="/lanchonete/lanchonete.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 </head>
 <body>
-	<form>
+<header th:replace="fragments/padrao :: cabecalho"></header>
+	<form action="salvarLanchonete" method="post">
+
+		<div class="divTitulo">
+			<h2 class="titulo">Cadastro de Lanchonete</h2>
+		</div>
+
+		<div class="row nome">
+			<div class="input-field col s6">
+				<input id="first_name2" type="text" class="validate" name="nome">
+				<label class="active" for="first_name2">Nome:</label>
+
+
+
+			</div>
+		</div>
+
+
+		<section class="localidade">
+
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="cep" type="text" class="validate" name="cep"> <label
+						class="active label" for="first_name2">Cep:</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="endereco" type="text" class="validate" name="endereco"
+						disabled="disabled"> <label class="label" 
+						for="first_name2">Endereço:</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="bairro" type="text" class="validate" name="bairro" 
+						disabled="disabled"> <label class="label"  
+						for="first_name2">Bairro:</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="cidade" type="text" class="validate" name="cidade"
+						disabled="disabled"> <label class="label" 
+						for="first_name2">Cidade:</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="estado" type="text" class="validate" name="estado"
+						disabled="disabled"> <label class="label" 
+						for="first_name2">Estado:</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="first_name2" type="text" class="validate"
+						name="complemento"> <label class="label" 
+						for="first_name2">Complemento:</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="first_name2" type="text" class="validate" name="numero">
+					<label class="active label" for="first_name2">Número:</label>
+				</div>
+			</div>
+
+		</section>
+
 		<div class="row">
-        <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">Nome</label>
-        </div>
-        </div>
-        
-        <div class="row">
-        <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">Endereço</label>
-        </div>
-        </div>
-        
-        <div class="row">
-        <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">Nome</label>
-        </div>
-        </div>
-        
-        <select>
-        	<option>opcao1</option>
-        </select>
-   
+			<div class="input-field col s6">
+				<input id="first_name2" type="textaera" class="validate descricao"
+					name="descricao"> <label class="active label" for="first_name2">Descrição:</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s6">
+				<input id="first_name2" type="text" class="validate"
+					name="pagamento"> <label class="active label" for="first_name2">Forma
+					de pagamento:</label>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="input-field col s6">
+				<input id="first_name2" type="text" class="validate"
+					name="validacao"> <label class="active label" for="first_name2">Redes
+					Sociais:</label>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="input-field col s6">
+				<input id="first_name2" type="text" class="validate"> <label
+					class="active label" for="first_name2">Telefone:</label>
+			</div>
+		
+		</div>
 	
+		<p class="corP">Selecione o tipo do seu restaurante:</p>
+		<select name="tipo.id">
+			<option th:each="t:${tipos}" th:text="${t.nome}" th:value="${t.id}"></option>
+		</select> <br>
+	
+		<button class="waves-effect waves-light btn" type="submit">Enviar</button>
+
+
 	</form>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
+	<script src="/JavaScript/ScriptJason.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
+	</script>
+	 <footer th:replace="fragments/padrao :: rodape"></footer>
 </body>
 </html>

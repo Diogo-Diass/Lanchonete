@@ -1,0 +1,51 @@
+@charset "ISO-8859-1";
+.row{
+	display: inline-block;
+	width: 20%;
+}
+.localidade{
+	margin-top: 5em;
+	width:130%;
+	margin-bottom: 5em;
+	border-bottom: 0.2em solid black;
+}
+.nome{
+	border-bottom: 0.2em solid black;
+	width: 100%;
+}
+.estacionamento{
+	display: inline;
+	justify-content:flex-start; 
+	
+}
+.delivery{
+	display: inline;
+	justify-content: flex-end;
+}
+.descricao{
+	margin-top: 1em;
+	height: 5em;
+	width: 120%;
+}
+.titulo{
+	text-align: center;
+	background-color: black;
+	color:white;
+}
+body{
+	background-color: #e1f5fe;
+}
+.botao{
+	margin-left: 1em;
+}
+.central{
+	display: inline;
+}
+.corP{
+	background-color: black;
+	color:white;
+	height: 2em;
+}
+.label{
+	padding-top: 3em;
+}

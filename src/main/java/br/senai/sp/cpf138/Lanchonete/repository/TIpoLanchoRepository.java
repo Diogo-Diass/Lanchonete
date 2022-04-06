@@ -13,4 +13,5 @@ public interface TIpoLanchoRepository extends PagingAndSortingRepository<TipoLan
 	@Query("SELECT p from TipoLanchonete p WHERE p.palavraChave LIKE %:p%")
 	public List<TipoLanchonete> procurarPalavraChave(@Param("p") String parametro);
 			
+	
 }
