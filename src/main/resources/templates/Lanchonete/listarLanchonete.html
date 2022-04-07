@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Lista de Lanchonete</title>
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+
+<table class="striped">
+        <thead style="background-color: black; color: white;">
+          <tr>
+              <th>id:</th>
+              <th>Nome:</th>
+              <th>Endereço:</th>
+              <th>Telefone:</th>
+              <th>Cep:</th>
+              <th>bairro:</th>
+              <th>Estado:</th>
+              <th>Cidade:</th>
+              <th>Descrição:</th>
+              <th>Complemento:</th>
+              <th>Número:</th>
+              <th>Estacionamento:</th>
+               <th>Delivery:</th>
+               <th>Excluir</th>
+               <th>Alterar</th>
+              
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr th:each="l:${lanchonete}">
+            <td th:text="${l.id}"></td>
+            <td th:text="${l.nome}"></td>
+            <td th:text="${l.endereco}"></td>
+            <td th:text="${l.telefone}"></td>
+            <td th:text="${l.cep}"></td>
+            <td th:text="${l.bairro}"></td>
+            <td th:text="${l.estado}"></td>
+            <td th:text="${l.cidade}"></td>
+            <td th:text="${l.descricao}"></td>
+            <td th:text="${l.complemento}"></td>
+            <td th:text="${l.numero}"></td>
+            <td th:text="${l.estacionamento}"></td>
+            <td th:text="${l.delivery}"></td>
+            <td><a th:href="@{/excluirLanchonete(id=${l.id})}">Excluir</a></td>
+            <td><a th:href="@{/alterarLanchonete(id=${l.id})}">Alterar</a></td>
+          </tr>
+           
+        </tbody>
+      </table>
+</body>
+</html>

@@ -1,51 +1,145 @@
 @charset "ISO-8859-1";
-.row{
-	display: inline-block;
-	width: 20%;
-}
-.localidade{
-	margin-top: 5em;
-	width:130%;
-	margin-bottom: 5em;
-	border-bottom: 0.2em solid black;
-}
-.nome{
-	border-bottom: 0.2em solid black;
-	width: 100%;
-}
-.estacionamento{
-	display: inline;
-	justify-content:flex-start; 
-	
-}
-.delivery{
-	display: inline;
-	justify-content: flex-end;
-}
-.descricao{
-	margin-top: 1em;
-	height: 5em;
-	width: 120%;
-}
+
 .titulo{
 	text-align: center;
 	background-color: black;
 	color:white;
+	width: 100%;
 }
 body{
-	background-color: #e1f5fe;
+	background-color:#e3f2fd;
 }
+.nome{
+	position: relative;	
+	bottom: 0.1em;
+	border-bottom: 0.2em solid black;
+	padding-bottom: 0.5em;
+	margin-bottom: 1em;
+}
+.inputs{
+	border:0px;
+	border-bottom: 0.1em solid black;
+	background-color:#e3f2fd;
+	outline: 0px;
+}
+.inputs:hover{
+	border-bottom: 0.5em solid cyan;
+}
+
+.localidade{
+	display: inline-block;
+	border-bottom: 0.2em solid black;
+	width:100%;
+	padding-bottom: 0.5em;
+	
+		
+}
+.localidade div{
+	display: inline-block;
+	justify-content: space-between;
+	width: 14%;
+}
+.descricao{
+	display: flex;
+	align-items:center;	
+	position: relative;
+	top:2em;
+	border-bottom: 0.2em solid black;
+	padding-bottom: 0.5em;
+	
+	box-sizing: border-box;
+}
+.textarea{	
+
+	width: 50%;
+	border:0px;
+	border-bottom: 0.1em solid black;
+	background-color:#e3f2fd;
+	outline: 0px;
+	
+	}	
+	.textarea:hover{	
+	border-bottom: 0.5em solid cyan;
+	}
+.outros{
+	position: relative;
+	top: 3em;
+	border-bottom: 0.2em solid black;
+	padding-bottom: 0.5em;
+}
+.select{
+	position: relative;
+	top:3em;
+}
+
 .botao{
-	margin-left: 1em;
+	position:relative;
+	top: 8em;
+	background-color: white;
+	height:3em;
+	width:40%;
+	left:30%;
 }
-.central{
-	display: inline;
-}
-.corP{
-	background-color: black;
-	color:white;
-	height: 2em;
+.botao:hover{
+	background-color: CadetBlue;
+	border:0px;
 }
 .label{
-	padding-top: 3em;
+	color:DarkBlue;
+	position: relative;
+	 font-weight: bold;
+	bottom:10px;
 }
+.active{
+	position: relative;
+	bottom: 0px;
+}
+.titulo2{
+	position:relative;
+	bottom:1em;
+	text-align: center;
+	background-color:white;
+	color:red;
+	width: 100%;
+}
+select{
+	width:100%;
+	background-color:white; 
+	border:0.5em solid cyan;
+	-webkit-appearance:none;
+}
+select option{
+	background-color: black;
+	color:white;
+}
+.corP{
+	background-color: white;
+	height: 1.5em;
+	color:red;
+	text-align: center;
+}
+.fotos{
+	position: relative;
+	top:5em;
+	width: 100%;
+	background-color: white;
+	height: 2em;
+}
+.check{
+	position: relative;
+	left:1em;
+}
+.checkbox{
+	display:flex;
+	flex-direction:row;
+	position: relative;
+	left:2em;
+}
+.che2{
+	position: relative;
+	padding-left: 3em;
+}
+
+	
+
+

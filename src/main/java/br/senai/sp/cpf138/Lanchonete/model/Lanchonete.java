@@ -34,7 +34,6 @@ public class Lanchonete {
 	@ManyToOne
 	private TipoLanchonete tipo;
 	private boolean estacionamento;
-	private boolean fastFood;
 	private String formaPagamento;
 	private String redeSocial;
 	private String telefone;
