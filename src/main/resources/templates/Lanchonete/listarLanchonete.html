@@ -5,9 +5,10 @@
 <title>Lista de Lanchonete</title>
  <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/lanchonete/listarLanchonete.css">
 </head>
 <body>
-
+<header th:replace="fragments/padrao :: cabecalho"></header>
 <table class="striped">
         <thead style="background-color: black; color: white;">
           <tr>
@@ -24,6 +25,7 @@
               <th>Número:</th>
               <th>Estacionamento:</th>
                <th>Delivery:</th>
+               <th>Tipo restaurante</th>
                <th>Excluir</th>
                <th>Alterar</th>
               
@@ -45,11 +47,15 @@
             <td th:text="${l.numero}"></td>
             <td th:text="${l.estacionamento}"></td>
             <td th:text="${l.delivery}"></td>
+            <td th:text="${l.tipo.nome}"></td>
+            
             <td><a th:href="@{/excluirLanchonete(id=${l.id})}">Excluir</a></td>
             <td><a th:href="@{/alterarLanchonete(id=${l.id})}">Alterar</a></td>
           </tr>
            
         </tbody>
       </table>
+      
+      <footer th:replace="fragments/padrao :: rodape"></footer>
 </body>
 </html>

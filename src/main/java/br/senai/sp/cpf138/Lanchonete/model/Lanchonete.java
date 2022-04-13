@@ -38,5 +38,9 @@ public class Lanchonete {
 	private String redeSocial;
 	private String telefone;
 	private boolean delivery;
+	
+	public String[] verFotos() {
+		return this.fotos.split(";");
+	}
  	
 }

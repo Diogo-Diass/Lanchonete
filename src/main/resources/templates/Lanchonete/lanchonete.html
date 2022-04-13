@@ -3,15 +3,18 @@
 <head>
 <meta charset="utf-8">
 <title>Lanchonete</title>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link rel="stylesheet" href="/lanchonete/lanchonete.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-	
+
+
+
+	<header th:replace="fragments/padrao :: cabecalho"></header>
 
 	<form action="salvarLanchonete" method="post" enctype="multipart/form-data" accept-charset="utf-8">
-	<input type="hidden" th:value="${lancho?.id}">
+	<input type="hidden" th:value="${lancho?.id}" name="">
 
 		<div class="divTitulo">
 			<h1 class="titulo">CADASTRO DE LANCHONETE</h1>
@@ -27,7 +30,7 @@
 	
 	
 <div class="localidade">
-<h3 class="titulo2">LOCALIZAÇÂO:</h3>
+<h3 class="titulo2">LOCALIZAÇÃO:</h3>
 <div class="divs">
 	<label class="label">Cep:</label>	
 	<input id="cep" type="text" name="cep" class="inputs" th:value="${lancho?.cep}"> 
@@ -73,13 +76,19 @@
 <div class="checkbox">
 
 <div class="che1">
-	<label class="label active ">Possui estacionamento?</label>
-	<input type="checkbox" class="check1" name="estacionamento" th:value="${lancho?.estacionamento}">
+	 <label class="label">
+        <input id="indeterminate-checkbox" type="checkbox" name="estacionamento" th:checked="${lancho?.estacionamento}" />
+        <span>Possui Estacionamento?</span>
+      </label>
+	
+
 </div>	
 	
 <div class="che2">	
-	<label class="label active che2">Possui Delivery?</label>
-	<input type="checkbox" class="check2" name="delivery" th:value="${lancho?.delivery}">
+	 <label class="label">
+        <input id="indeterminate-checkbox" type="checkbox" name="delivery" th:checked="${lancho?.delivery}" />
+        <span>Possui delivery?</span>
+      </label>
 </div>
 
 </div>
@@ -107,13 +116,44 @@
 	
 	<div class="fotos">
 		<label class="label active">Fotos:</label>
-		<input type="file" name="fileFotos" multiple="multiple" accept="image/*">
+		<input type="file" name="fileFotos" multiple="multiple" accept="image/*" >
 	</div>
+	
+	
+	<div th:if="${lancho?.fotos?.length > 0}"class="divFotos">
+	<h5 class="tituloFotos">Fotos Cadastradas</h5>
+	
+	<div class="dentroFotos">
+		<ul >
+		<li th:each="foto, i : ${lancho?.verFotos()}">
+			<a th:href="${foto}" target="blank"><img th:src="${foto}"></a>
+			<a th:href="@{/excluirFotolanchonete(idLanchonete=${lancho.id}, numFoto = ${i.index})}"></a>
+			<i class="material-icons">delete_forever</i>
+				
+		</ul>
+	</div>
+	
+	</div>
+	
 		<button class="botao" type="submit">Enviar</button>
 
 	</form>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
+
+	
+	<script>
+		$(document).ready(function() {
+			$('select').formSelect();
+		});
+	</script>
 		
 	<script src="/JavaScript/ScriptJason.js"></script>
+	
+	<footer th:replace="fragments/padrao :: rodape"></footer>
 	
 	 
 </body>

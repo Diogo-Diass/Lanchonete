@@ -5,14 +5,18 @@ import java.util.UUID;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.auth.Credentials;
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.storage.Blob;
+import com.google.cloud.storage.BlobId;
+import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
 
-
+@Service
 public class FirebaseUtil {
 
 	//variavel para guardar as credenciais do firebase
@@ -49,10 +53,32 @@ public class FirebaseUtil {
 		
 	}
 	
-	public String uploadFile(MultipartFile arquivo) {
+	public String uploadFile(MultipartFile arquivo) throws IOException {
+		
 		//método que gera uma String aleátoria para o nome o arquivo
 		String nomeArquivo = UUID.randomUUID().toString() + getExtensao(arquivo.getOriginalFilename());
 		
-		return nomeArquivo;
+		//criar um blob
+		BlobId blobId = BlobId.of(BUCKET_NAME, nomeArquivo);
+		
+		//criar um blobinfo a partir do blobid
+		BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType("media").build();
+		
+		//manda o blobinfo para o storage passando os bytes do arquivo
+		storage.create(blobInfo, arquivo.getBytes());
+		
+		//retorna a url para acessar o arquivo
+		return String.format(DOWNLOAD_URL, nomeArquivo);
 	}
+	
+	//método para excluir a foto do firebase
+	public void deletar(String nomeArquivo) {
+		//retira o prefixo e o sufixo do nome do arquivo
+		nomeArquivo = nomeArquivo.replace(PREFIX, "").replace(SUFFIX, "");
+		//pega um blob através do nome do arquivo
+		Blob blob = storage.get(BlobId.of(BUCKET_NAME, nomeArquivo));
+		//deleta o arquivo
+		storage.delete(blob.getBlobId());
+	}
+	
 }

@@ -8,6 +8,7 @@
 }
 body{
 	background-color:#e3f2fd;
+	
 }
 .nome{
 	position: relative;	
@@ -58,9 +59,7 @@ body{
 	outline: 0px;
 	
 	}	
-	.textarea:hover{	
-	border-bottom: 0.5em solid cyan;
-	}
+	
 .outros{
 	position: relative;
 	top: 3em;
@@ -139,6 +138,26 @@ select option{
 	position: relative;
 	padding-left: 3em;
 }
+footer {
+    position: relative;
+    top:10em;
+    left:0;
+    width:100%;
+}
+img{
+	width:20%;
+}
+.divFotos{
+	position: relative;
+	top:6em;
+}
+.tituloFotos{
+	background-color: black;
+	height: 1.3em;
+	text-align: center;
+	color:white;
+	
+}	
 
 	
 
