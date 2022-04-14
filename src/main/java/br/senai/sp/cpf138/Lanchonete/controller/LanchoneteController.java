@@ -38,7 +38,7 @@ public class LanchoneteController {
 	@RequestMapping(value = "salvarLanchonete", method = RequestMethod.POST)
 	public String salvarLanchonete(Lanchonete lancho, @RequestParam("fileFotos") MultipartFile[] fileFotos){
 		//string para url das fotos
-		String fotos = "";
+		String fotos = lancho.getFotos();
 				
 		//percorrer cada arquivo que foi submetido no formulario
 		for(MultipartFile arquivo : fileFotos) {
@@ -69,6 +69,14 @@ public class LanchoneteController {
 	@RequestMapping("excluirLanchonete")
 	public String excluirLanchonete(Long id) {
 		
+		Lanchonete lancho = repLan.findById(id).get();
+		
+		if(lancho.getFotos().length() > 0) {
+			
+		for(String foto : lancho.verFotos()) {
+			firebaseUtil.deletar(foto);
+		}
+	}
 			repLan.deleteById(id);
 		return "redirect:listarLanchonete";
 	}

@@ -6,4 +6,5 @@ import br.senai.sp.cpf138.Lanchonete.model.Administrador;
 
 public interface AdminRepository extends PagingAndSortingRepository<Administrador, Long>{
 
+	public Administrador findByEmailAndSenha(String email, String senha);
 }

@@ -14,12 +14,10 @@
           <tr>
               <th>id:</th>
               <th>Nome:</th>
-              <th>Endereço:</th>
+              
               <th>Telefone:</th>
               <th>Cep:</th>
-              <th>bairro:</th>
-              <th>Estado:</th>
-              <th>Cidade:</th>
+             
               <th>Descrição:</th>
               <th>Complemento:</th>
               <th>Número:</th>
@@ -36,12 +34,10 @@
           <tr th:each="l:${lanchonete}">
             <td th:text="${l.id}"></td>
             <td th:text="${l.nome}"></td>
-            <td th:text="${l.endereco}"></td>
+            
             <td th:text="${l.telefone}"></td>
             <td th:text="${l.cep}"></td>
-            <td th:text="${l.bairro}"></td>
-            <td th:text="${l.estado}"></td>
-            <td th:text="${l.cidade}"></td>
+            
             <td th:text="${l.descricao}"></td>
             <td th:text="${l.complemento}"></td>
             <td th:text="${l.numero}"></td>

@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+@charset "utf-8";
+body{
+	background-color: #e1f5fe;
+}
+.controle{
+	margin:100px 500px;
+	width:50%;
+	background-color: white;
+	
+}
+#botao{
+	color:#ff8a80;
+}
+
+.erro{
+	background-color: red;
+	color:white;
+	height: 60px;
+}
+.sucesso{
+	background-color: #e8f5e9;
+	color:black;
+	height: 60px;
+	
+}
+.titulo{
+	text-align: center;
+	margin-bottom: 1em;
+	color:red;
+	
+}
+#first_name2{
+	width:200%;
+}
+
+footer {
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+}

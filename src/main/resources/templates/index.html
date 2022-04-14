@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+<header th:replace="fragments/padrao :: cabecalho"></header>
+	<form class=controle method="post" action="login">
+	<table>
+			<h2 class="titulo">Login</h2>
+			
+			<div class="row">
+    <div class="input-field col s6">
+       <i class="material-icons">email<input  id="first_name2" type="email" class="validate" name="email" th:value="${adm?.email} " required="required"></i>
+      <label class="active" for="first_name2">Email</label>
+    </div>
+  </div>
+		
+		
+	 	<div class="row">
+    <div class="input-field col s6">
+     <i class="material-icons">lock<input  id="first_name2" type="password" class="validate" name="senha"  required="required"></i>
+      <label class="active" for="first_name2">Senha</label>
+    </div>
+  </div>
+  
+		</table>
+		 
+		
+		<button id="botao" class="waves-effect waves-light btn-large blue lighten-5 " type="submit" >Salvar</button>
+	</form>
+
+	<div class="erro" th:if="${not #strings.isEmpty(mensagemErro)}"> <span th:text="${mensagemErro}" ></span></div>
+		
+	</div>
+	
+	
+	
+	</form>
+</body>
+</html>

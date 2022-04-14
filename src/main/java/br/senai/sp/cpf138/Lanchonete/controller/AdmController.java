@@ -3,6 +3,7 @@ package br.senai.sp.cpf138.Lanchonete.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.senai.sp.cpf138.Lanchonete.annotation.Publico;
 import br.senai.sp.cpf138.Lanchonete.model.Administrador;
 import br.senai.sp.cpf138.Lanchonete.repository.AdminRepository;
 import br.senai.sp.cpf138.Lanchonete.util.HashUtil;
@@ -125,6 +127,30 @@ public class AdmController {
 		model.addAttribute("adm", adm);
 		
 		return "forward:formAdm";
+	}
+	@Publico
+	@RequestMapping("login")
+	public String login(Administrador admLogin, RedirectAttributes attr, HttpSession session) {
+		//buscar o adm no banco de dados através do email e da senha
+		Administrador admin = admRep.findByEmailAndSenha(admLogin.getEmail(), admLogin.getSenha());
+		//verifica se existe o admin
+		if(admin == null) {
+			attr.addFlashAttribute("mensagemErro", "Login e/ou senha inválido(s)");
+			return "redirect:/";
+		}else {
+			//se não for nulo, salva na sessao e acessa o sisyrma
+			session.setAttribute("usuarioLogado", admin);
+			return "redirect:formAdm";
+		}
+	
+	}
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+		//elimina o usuário da session
+		session.invalidate();
+		//retorna para a barra inicial
+		return "redirect:/";
+		
 	}
 	
 }
