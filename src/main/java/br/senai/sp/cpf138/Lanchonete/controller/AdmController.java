@@ -140,7 +140,7 @@ public class AdmController {
 		}else {
 			//se não for nulo, salva na sessao e acessa o sisyrma
 			session.setAttribute("usuarioLogado", admin);
-			return "redirect:formAdm";
+			return "redirect:inicio";
 		}
 	
 	}

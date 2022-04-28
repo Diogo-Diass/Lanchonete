@@ -2,9 +2,77 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="/lanchonete/paginaInicial.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 <title>Guia de Lanchonete</title>
 </head>
 <body>
- 
+
+	<header th:replace="fragments/padrao :: cabecalho"></header>
+	<h1 class="titulo">GUIA DE LANCHONETE</h1>
+	<div class="carrossel">
+	
+	<div class="imagens" id="img">
+	
+	
+		<div class="imagem1">
+			<img src="/lanchonete/imagens/imag1.png">
+		</div>
+		<div class="imagem1">
+			<img src="/lanchonete/imagens/imag2.png">
+		</div>
+		<div class="imagem1">
+			<img src="/lanchonete/imagens/imag3.png">
+		</div>
+		<div class="imagem1">
+			<img src="/lanchonete/imagens/img2.jpg">
+		</div>
+		
+		<div class="imagem1">
+			<img src="/lanchonete/imagens/img3.jpg">
+		</div>
+		
+		</div>
+		
+		
+	</div>
+	
+	<div class="listasTiposLanchonete">
+	
+	
+	<div class="bloco">
+	<h5 class="title">Lista de administradores:</h5>
+	<a href="/listarAdmin/1"><img src="/lanchonete/imagens/tipos/ad.png" class="imgBloco"></a>
+	
+	</div>
+	
+	<div class="bloco">
+	<h5>Lista de Lanchonetes:</h5>
+	<a href="/listarLanchonete"><img src="/lanchonete/imagens/tipos/la.png" class="imgBloco"></a>
+	
+	</div>
+	
+	<div class="bloco">
+	<h5>Lista de tipos de lanchonetes:</h5>
+	<a href="/listarTipos"><img src="/lanchonete/imagens/tipos/li.png" class="imgBloco"></a>
+	
+	
+	</div>
+	
+	<div class="bloco">
+	<h5>Cadastrar Lanchonete:</h5>
+	<a href="/formLanchonete"><img src="/lanchonete/imagens/tipos/caLan.png" class="imgBloco"></a>
+	
+	</div>
+	
+	
+		
+	</div>
+	
+	<footer th:replace="fragments/padrao :: rodape"></footer>
+<script src="/JavaScript/ScriptCarrossel.js"></script>
 </body>
 </html>

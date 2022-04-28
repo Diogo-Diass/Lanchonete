@@ -1,11 +1,14 @@
 package br.senai.sp.cpf138.Lanchonete.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -38,6 +41,9 @@ public class Lanchonete {
 	private String redeSocial;
 	private String telefone;
 	private boolean delivery;
+	
+	@OneToMany(mappedBy = "lanchonete")
+	private List<Avaliacao> avaliacoes;
 	
 	public String[] verFotos() {
 		return this.fotos.split(";");

@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import br.senai.sp.cpf138.Lanchonete.util.HashUtil;
 import lombok.Data;
 
@@ -19,6 +22,7 @@ public class Usuario {
 	private String nome;
 	@Column(unique = true)
 	private String email;
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String senha;
 	
 	public void SetSenha(String senha) {

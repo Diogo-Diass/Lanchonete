@@ -1,0 +1,78 @@
+@charset "ISO-8859-1";
+
+.carrossel{
+	overflow:hidden;
+	width:1500px;
+	margin: auto;
+	
+}
+.imagens{
+	display: flex;
+	transition:transform 1.0s ease-in-out;
+	transform: translateX(0);
+}
+
+.imagem1{
+	width:1500px;	
+	object-fit:cover;
+}
+
+
+.listasTiposLanchonete{
+	display: flex;
+	flex-direction: row;
+	background-color:black;
+	color:white;	
+	
+	flex-wrap: wrap;
+}
+.listasTiposLanchonete div{
+	width: 50%;
+}
+body{
+	background-color:#e3f2fd;
+}
+.bloco{
+	text-align: center;	
+	
+
+}
+
+.bloco:hover{
+	transition-timing-function:ease-out;
+	transition-duration:0.5s;
+	transform: translateY(-15px);
+
+}
+.bloco h5{
+	font-weight: bold;
+}
+.botaoTipo{
+	margin: auto;
+	background-color: white;
+	color:black;
+	height: 3em;
+	border-radius: 1em;
+}
+
+.botaoTipo:hover{
+	background-color: gray;
+	color: white;
+}
+.botaoTipo a{
+	color: white;
+}
+
+.botaoTipo a:hover{
+	color: white;
+}
+.divTitulo{
+	background-color: black;
+	box-sizing: border-box;
+	
+}
+.titulo{
+	background-color: black;
+	color:white;
+	text-align: center; 
+}
