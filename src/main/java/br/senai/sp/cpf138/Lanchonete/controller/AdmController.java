@@ -153,4 +153,16 @@ public class AdmController {
 		
 	}
 	
+	@RequestMapping("formUsuario")
+	public String formUsuario() {
+		
+		return "usuario/formUsuario";
+	}
+	
+	@RequestMapping("listarUsuario")
+	public String listarUsuario() {
+		
+		return "usuario/listarUsuario";
+	}
+	
 }

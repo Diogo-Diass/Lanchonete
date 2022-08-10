@@ -18,18 +18,15 @@ import br.senai.sp.cpf138.Lanchonete.interceptor.AppInterceptor;
 @Configuration
 public class AppConfig implements WebMvcConfigurer{
 	
-	@Autowired
-	private AppInterceptor interceptor;
-	
-	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**");
-	}
-	
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(interceptor);
-	}
+	/*
+	 * @Autowired private AppInterceptor interceptor;
+	 * 
+	 * @Override public void addCorsMappings(CorsRegistry registry) {
+	 * registry.addMapping("/**"); }
+	 * 
+	 * @Override public void addInterceptors(InterceptorRegistry registry) {
+	 * registry.addInterceptor(interceptor); }
+	 */
 	
 	//configura a conexão da aplicação ao Banco de dados Mysql
 	
@@ -37,7 +34,7 @@ public class AppConfig implements WebMvcConfigurer{
 		public DataSource dataSource() {
 			DriverManagerDataSource dataSource = new DriverManagerDataSource();
 			dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-			dataSource.setUrl("jdbc:mysql://localhost:3307/lanchonete");
+			dataSource.setUrl("jdbc:mysql://localhost:3306/lanchonete");
 			dataSource.setUsername("root");
 			dataSource.setPassword("root");
 			

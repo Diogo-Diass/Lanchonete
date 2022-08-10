@@ -1,0 +1,69 @@
+@charset "ISO-8859-1";
+
+.inputs {
+	box-sizing: border-box;
+	margin: 1em auto;
+	width: 50%;
+	background: transparent;
+	color: white;
+}
+
+.botao {
+	text-align: center;
+	padding-top: 1em;
+}
+
+.titulo {
+	text-align: center;
+	color: white;
+	font-family: Blippo, fantasy;
+}
+
+.video1 {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	overflow: hidden;
+	justify-content: center;
+	align-items: center;
+}
+
+.video1 video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+	width: 100%;
+}
+
+.formDiv .content {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	background-color: transparent;
+	backdrop-filter: blur(5px);
+	width: 50%;
+	margin: 10em auto;
+	height: 20%;
+}
+
+.botao2{
+	width: 20%;
+	font-size: medium;
+	font-family: Bradley Hand, cursive;
+}
+.inputs::placeholder{
+	color: white;
+	font-weight: bolder;
+	
+}
+
+.botao2:hover{
+	background-color: gray;
+	color: white;
+}
+
+.inputs:hover {
+	border: 2px solid white;
+}
